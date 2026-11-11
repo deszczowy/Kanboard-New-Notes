@@ -1,0 +1,7 @@
+*.zip
+# CMake
+cmake-build-*/
+
+# Ignore test Sqlite databases
+*.sqlite
+data_dir/

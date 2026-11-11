@@ -1,0 +1,30 @@
+<div class="page-header">
+    <h2><?= t('User tags') ?></h2>
+    <ul>
+        <li>
+            <?= $this->modal->medium('plus', t('Add new tag'), 'NoteTagController', 'create', array('plugin' => 'Notes')) ?>
+        </li>
+    </ul>
+</div>
+
+<?php if (empty($tags)): ?>
+    <p class="alert"><?= t('There are no user tags at the moment.') ?></p>
+<?php else: ?>
+    <table class="table-striped table-scrolling">
+        <tr>
+            <th class="column-60"><?= t('Tag') ?></th>
+            <th class="column-20"><?= t('Color') ?></th>
+            <th><?= t('Action') ?></th>
+        </tr>
+        <?php foreach ($tags as $tag): ?>
+            <tr>
+                <td><?= $this->text->e($tag['name']) ?></td>
+                <td><?= $this->text->e($colors[$tag['color_id']] ?? '') ?></td>
+                <td>
+                    <?= $this->modal->medium('edit', t('Edit'), 'NoteTagController', 'edit', array('plugin' => 'Notes', 'tag_id' => $tag['id'])) ?>
+                    <?= $this->modal->confirm('trash-o', t('Remove'), 'NoteTagController', 'confirm', array('plugin' => 'Notes', 'tag_id' => $tag['id'])) ?>
+                </td>
+            </tr>
+        <?php endforeach ?>
+    </table>
+<?php endif ?>
