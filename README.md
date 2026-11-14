@@ -4,8 +4,11 @@ Write notes in notebooks.
 
 This project is based on [kanboard-notes-plugin](https://gitlab.com/colonelpopcorn/kanboard-notes-plugin) by [Jonathan Ling], released under the MIT License. 
 
-**Note**
+### Caution
+
 This is an independent modification, mainly for educational purposes, to learn how to work with Kanborad plugins and to adapt this particular plugin to my own needs. I do not maintain the original plugin.
+
+**Please do not use this plugin in your work environment!**
 
 ### Requirements
 

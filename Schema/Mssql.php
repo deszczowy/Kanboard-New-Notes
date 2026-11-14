@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanboard\Plugin\Notes\Schema;
+namespace Kanboard\Plugin\NewNotes\Schema;
 
 use PDO;
 

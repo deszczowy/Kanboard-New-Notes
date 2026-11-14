@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanboard\Plugin\Notes\Formatter;
+namespace Kanboard\Plugin\NewNotes\Formatter;
 
 use Kanboard\Core\Filter\FormatterInterface;
 use Kanboard\Formatter\BaseFormatter;

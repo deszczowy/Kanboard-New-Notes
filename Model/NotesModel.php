@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanboard\Plugin\Notes\Model;
+namespace Kanboard\Plugin\NewNotes\Model;
 
 use Kanboard\Core\Base;
 

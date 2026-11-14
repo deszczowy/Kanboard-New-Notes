@@ -1,9 +1,9 @@
 <?php
 
-namespace Kanboard\Plugin\Notes\Controller;
+namespace Kanboard\Plugin\NewNotes\Controller;
 
 use Kanboard\Controller\BaseController;
-use Kanboard\Plugin\Notes\Pagination\UserNotesPagination;
+use Kanboard\Plugin\NewNotes\Pagination\UserNotesPagination;
 
 class UserNotesAndTodosController extends BaseController
 {
@@ -13,7 +13,7 @@ class UserNotesAndTodosController extends BaseController
         $user = $this->getUser();
         $tags = $this->noteTagModel->getUserTags($user['id']);
 
-        $this->response->html($this->helper->layout->dashboard('Notes:dashboard/show', array(
+        $this->response->html($this->helper->layout->dashboard('NewNotes:dashboard/show', array(
             'title' => t('Notes for %s', $this->helper->user->getFullname($user)),
             'user' => $user,
             'paginator' => $userNotesPagination->getUserNotesPaginator($user['id']),
@@ -24,7 +24,7 @@ class UserNotesAndTodosController extends BaseController
 
     public function showCreateModal(array $values = array(), array $errors = array())
     {
-        $this->response->html($this->template->render('Notes:note_creation/create', array(
+        $this->response->html($this->template->render('NewNotes:note_creation/create', array(
             'values' => $values,
             'errors' => $errors,
             'title' => t('New Note'),
@@ -41,7 +41,7 @@ class UserNotesAndTodosController extends BaseController
         if (empty($values)) {
             $values = $editingNote;
         }
-        $this->response->html($this->helper->layout->app('Notes:note_edit/edit', array(
+        $this->response->html($this->helper->layout->app('NewNotes:note_edit/edit', array(
             'values' => $values,
             'errors' => $errors,
             'editingNote' => $editingNote,
@@ -54,7 +54,7 @@ class UserNotesAndTodosController extends BaseController
         $noteId = $this->request->getIntegerParam('noteId');
         $userId = $this->getUser()['id'];
         $deletingNote = $this->notesModel->getNoteByIdForUser($noteId, $userId);
-        $this->response->html($this->template->render('Notes:note_delete/delete', array(
+        $this->response->html($this->template->render('NewNotes:note_delete/delete', array(
             'deletingNote' => $deletingNote,
             'redirect' => $this->request->getStringParam('redirect'),
         )));
@@ -71,7 +71,7 @@ class UserNotesAndTodosController extends BaseController
         }
 
         $redirect = $this->request->getStringParam('redirect') === '';
-        $this->response->redirect($this->helper->url->to('UserNotesAndTodosController', 'show', array('plugin' => 'Notes'), $redirect));
+        $this->response->redirect($this->helper->url->to('UserNotesAndTodosController', 'show', array('plugin' => 'NewNotes'), $redirect));
     }
 
     public function save()
@@ -85,7 +85,7 @@ class UserNotesAndTodosController extends BaseController
         }
 
         $redirect = $this->request->getStringParam('redirect') === '';
-        $this->response->redirect($this->helper->url->to('UserNotesAndTodosController', 'show', array('plugin' => 'Notes'), $redirect));
+        $this->response->redirect($this->helper->url->to('UserNotesAndTodosController', 'show', array('plugin' => 'NewNotes'), $redirect));
     }
 
     /**
@@ -104,7 +104,7 @@ class UserNotesAndTodosController extends BaseController
         }
 
         $redirect = $this->request->getStringParam('redirect') === '';
-        $this->response->redirect($this->helper->url->to('UserNotesAndTodosController', 'show', array('plugin' => 'Notes'), $redirect));
+        $this->response->redirect($this->helper->url->to('UserNotesAndTodosController', 'show', array('plugin' => 'NewNotes'), $redirect));
     }
 
     public function filterNotes()
@@ -125,7 +125,7 @@ class UserNotesAndTodosController extends BaseController
             return $tag;
         }, $this->noteTagModel->getUserTags($user['id']));
 
-        $this->response->html($this->helper->layout->dashboard('Notes:dashboard/show', array(
+        $this->response->html($this->helper->layout->dashboard('NewNotes:dashboard/show', array(
             'values' => array(
                 'search' => $search,
                 'searchTags' => $searchTags,

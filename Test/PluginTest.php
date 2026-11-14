@@ -2,7 +2,7 @@
 
 require_once 'tests/units/Base.php';
 
-use Kanboard\Plugin\Notes\Plugin;
+use Kanboard\Plugin\NewNotes\Plugin;
 
 class PluginTest extends Base
 {

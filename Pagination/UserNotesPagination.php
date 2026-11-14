@@ -1,13 +1,13 @@
 <?php
 
-namespace Kanboard\Plugin\Notes\Pagination;
+namespace Kanboard\Plugin\NewNotes\Pagination;
 
 use Kanboard\Core\Base;
 use Kanboard\Core\Filter\QueryBuilder;
-use Kanboard\Plugin\Notes\Filter\NoteContentFilter;
-use Kanboard\Plugin\Notes\Filter\NotesFilter;
-use Kanboard\Plugin\Notes\Filter\NoteTagFilter;
-use Kanboard\Plugin\Notes\Model\NotesModel;
+use Kanboard\Plugin\NewNotes\Filter\NoteContentFilter;
+use Kanboard\Plugin\NewNotes\Filter\NotesFilter;
+use Kanboard\Plugin\NewNotes\Filter\NoteTagFilter;
+use Kanboard\Plugin\NewNotes\Model\NotesModel;
 
 class UserNotesPagination extends Base
 {
@@ -20,7 +20,7 @@ class UserNotesPagination extends Base
             ->setUrl('UserNotesAndTodosController', 'show', array(
                 'pagination' => 'notes',
                 'userId' => $userId,
-                'plugin' => 'Notes'
+                'plugin' => 'NewNotes'
             ))
             ->setMax(50)
             ->setOrder(NotesModel::TABLE . '.modified_on')

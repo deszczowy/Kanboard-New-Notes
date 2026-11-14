@@ -1,7 +1,7 @@
 <div class="page-header">
     <h2><?= $editingNote['note_title']?></h2>
 </div>
-<form method="post" action="<?= $this->url->href('UserNotesAndTodosController', 'save', array('plugin' => 'Notes')) ?>" autocomplete="off">
+<form method="post" action="<?= $this->url->href('UserNotesAndTodosController', 'save', array('plugin' => 'NewNotes')) ?>" autocomplete="off">
     <?= $this->form->csrf() ?>
 
     <div class="note-form-container">

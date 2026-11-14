@@ -3,8 +3,8 @@
 require_once "tests/units/Base.php";
 
 use Kanboard\Core\Plugin\Loader;
-use Kanboard\Plugin\Notes\Plugin;
-use Kanboard\Plugin\Notes\Model\NotesModel;
+use Kanboard\Plugin\NewNotes\Plugin;
+use Kanboard\Plugin\NewNotes\Model\NotesModel;
 
 class NotesModelTest extends Base
 {

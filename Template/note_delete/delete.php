@@ -10,6 +10,6 @@
     <?= $this->modal->confirmButtons(
         'UserNotesAndTodosController',
         'delete',
-        array('noteId' => $deletingNote['id'], 'redirect' => $redirect, 'plugin' => 'Notes')
+        array('noteId' => $deletingNote['id'], 'redirect' => $redirect, 'plugin' => 'NewNotes')
     ) ?>
 </div>
