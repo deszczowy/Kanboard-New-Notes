@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'My Notes' => 'Minhas notas',
+    'Notebook' => 'Caderno',
     'No notes found' => 'Nenhuma nota encontrada',
     'New note' => 'Nova nota',
     'Remove a note' => 'Remover uma nota',

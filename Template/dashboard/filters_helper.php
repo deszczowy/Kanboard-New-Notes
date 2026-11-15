@@ -23,7 +23,7 @@
             </a>
         </li>
         <li>
-            <a href="<?= '/dashboard/' . $this->user->getId() . '/notes' ?>"><span><?= t('Remove filters') ?></span></a>
+            <a href="<?= $this->url->to('UserNotesAndTodosController', 'show', array('plugin' => 'NewNotes')) ?>"><span><?= t('Remove filters') ?></span></a>
         </li>
     </ul>
 </div>

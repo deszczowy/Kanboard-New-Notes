@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h2><?= $this->url->link(t('My Notes'), 'UserNotesAndTodosController', 'show', array('plugin' => 'NewNotes')) ?>
+    <h2><?= $this->url->link(t('Notebook'), 'UserNotesAndTodosController', 'show', array('plugin' => 'NewNotes')) ?>
         (<?= $paginator->getTotal() == 0 ? 0 : $paginator->getTotal() ?>)</h2>
 </div>
 <div class="filter-box margin-bottom" style="max-width: unset">
