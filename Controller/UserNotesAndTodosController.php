@@ -32,6 +32,23 @@ class UserNotesAndTodosController extends BaseController
         )));
     }
 
+    public function showNote(array $values = array(), array $errors = array())
+    {
+        $noteId = $this->request->getIntegerParam('noteId');
+        $userId = $this->getUser()['id'];
+        $editingNote = $this->notesModel->getNoteByIdForUser($noteId, $userId);
+        $tagsArr = $this->noteTagModel->getTagsForNote($noteId);
+        if (empty($values)) {
+            $values = $editingNote;
+        }
+        $this->response->html($this->helper->layout->app('NewNotes:note_show/show', array(
+            'values' => $values,
+            'errors' => $errors,
+            'editingNote' => $editingNote,
+            'tags' => $tagsArr,
+        )));
+    }
+
     public function showEditModal(array $values = array(), array $errors = array())
     {
         $noteId = $this->request->getIntegerParam('noteId');
