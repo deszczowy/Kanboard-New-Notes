@@ -11,6 +11,7 @@ class Plugin extends Base
     public function initialize()
     {
         $this->hook->on('template:layout:js', array('template' => 'plugins/NewNotes/Assets/js/NotesApp.js'));
+        $this->hook->on('template:layout:css', array('template' => 'plugins/NewNotes/Assets/css/notes.css'));
         $this->template->hook->attach('template:dashboard:sidebar', 'NewNotes:dashboard/sidebar');
         $this->template->hook->attach('template:dashboard:page-header:menu', 'NewNotes:dashboard/menu');
         $this->template->hook->attach('template:user:sidebar:actions', 'NewNotes:user/sidebar');

@@ -43,7 +43,7 @@ class UserNotesAndTodosController extends BaseController
 
         $this->response->html($this->helper->layout->dashboard('NewNotes:note_show/show', array(
             'title' => t('Note: %s', $editingNote['note_title']),
-            'editingNote' => $editingNote,
+            'note' => $editingNote,
             'tags' => $tagsArr,
         )));
     }
