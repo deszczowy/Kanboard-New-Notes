@@ -14,7 +14,7 @@ class NoteTagModel extends Base
         return $this->db
             ->table(self::TABLE)
             ->join(self::TAG_TABLE, 'id', 'tag_id')
-            ->columns(self::TAG_TABLE . '.name', self::TAG_TABLE . '.id')
+            ->columns(self::TAG_TABLE . '.name', self::TAG_TABLE . '.id', self::TAG_TABLE . '.color_id')
             ->eq('note_id', $noteId)
             ->findAll();
     }
