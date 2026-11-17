@@ -11,10 +11,36 @@ class NotesModel extends Base
 
     public function getUserViewQuery($userId)
     {
+        $driver = defined('DB_DRIVER') ? DB_DRIVER : 'sqlite';
+
+        switch ($driver) {
+            case 'mysql':
+            case 'postgres':
+                $lengthExpression = 'CHAR_LENGTH(note_content) AS note_len';
+                break;
+
+            case 'sqlite':
+            default:
+                $lengthExpression = 'LENGTH(note_content) AS note_len';
+                break;
+        }
+
         return $this->db
-            ->table(self::TABLE)
-            ->eq('note_owner_type', 'user')
-            ->eq('note_owner_id', $userId);
+        ->table(self::TABLE)
+        ->columns(
+            'id',
+            'note_owner_type',
+            'note_owner_id',
+            'note_title',
+            $lengthExpression,
+            'substr(note_content, 1, 400) AS note_content',
+            'created_on',
+            'created_by',
+            'modified_on',
+            'modified_by'
+        )
+        ->eq('note_owner_type', 'user')
+        ->eq('note_owner_id', $userId);
     }
 
     public function getTagNotExistsSubQuery($userId)
