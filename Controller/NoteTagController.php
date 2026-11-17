@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanboard\Plugin\NewNotes\Controller;
+namespace Kanboard\Plugin\Notebook\Controller;
 
 use Kanboard\Controller\BaseController;
 use Kanboard\Core\Controller\AccessForbiddenException;
@@ -11,7 +11,7 @@ class NoteTagController extends BaseController
     public function show()
     {
         $user = $this->getUser();
-        $this->response->html($this->helper->layout->user('NewNotes:tag/index', array(
+        $this->response->html($this->helper->layout->user('Notebook:tag/index', array(
             'user' => $user,
             'tags' => $this->noteTagModel->getUserTags($user['id']),
             'colors' => $this->colorModel->getList(),
@@ -20,7 +20,7 @@ class NoteTagController extends BaseController
 
     public function create(array $values = array(), array $errors = array())
     {
-        $this->response->html($this->template->render('NewNotes:tag/create', array(
+        $this->response->html($this->template->render('Notebook:tag/create', array(
             'values' => $values,
             'colors' => $this->colorModel->getList(),
             'errors' => $errors,
@@ -37,7 +37,7 @@ class NoteTagController extends BaseController
             $this->flash->failure(t('Unable to create this tag.'));
         }
 
-        $this->response->redirect($this->helper->url->to('NoteTagController', 'show', array('plugin' => 'NewNotes')));
+        $this->response->redirect($this->helper->url->to('NoteTagController', 'show', array('plugin' => 'Notebook')));
     }
 
     public function edit(array $values = array(), array $errors = array())
@@ -49,7 +49,7 @@ class NoteTagController extends BaseController
             $values = $tag;
         }
 
-        $this->response->html($this->template->render('NewNotes:tag/edit', array(
+        $this->response->html($this->template->render('Notebook:tag/edit', array(
             'tag' => $tag,
             'values' => $values,
             'colors' => $this->colorModel->getList(),
@@ -67,7 +67,7 @@ class NoteTagController extends BaseController
             $this->flash->failure(t('Unable to update this tag.'));
         }
 
-        $this->response->redirect($this->helper->url->to('NoteTagController', 'show', array('plugin' => 'NewNotes')));
+        $this->response->redirect($this->helper->url->to('NoteTagController', 'show', array('plugin' => 'Notebook')));
     }
 
     public function confirm()
@@ -75,7 +75,7 @@ class NoteTagController extends BaseController
         $tag_id = $this->request->getIntegerParam('tag_id');
         $tag = $this->noteTagModel->getTagById($tag_id);
 
-        $this->response->html($this->template->render('NewNotes:tag/delete', array(
+        $this->response->html($this->template->render('Notebook:tag/delete', array(
             'tag' => $tag,
         )));
     }
@@ -91,6 +91,6 @@ class NoteTagController extends BaseController
             $this->flash->failure(t('Unable to remove this tag.'));
         }
 
-        $this->response->redirect($this->helper->url->to('NoteTagController', 'show', array('plugin' => 'NewNotes')));
+        $this->response->redirect($this->helper->url->to('NoteTagController', 'show', array('plugin' => 'Notebook')));
     }
 }

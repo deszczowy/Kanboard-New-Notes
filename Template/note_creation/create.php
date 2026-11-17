@@ -1,7 +1,7 @@
 <div class="page-header">
     <h2><?= $title ?></h2>
 </div>
-<form method="post" action="<?= $this->url->href('UserNotesAndTodosController', 'create', array('plugin' => 'NewNotes')) ?>" autocomplete="off">
+<form method="post" action="<?= $this->url->href('UserNotesAndTodosController', 'create', array('plugin' => 'Notebook')) ?>" autocomplete="off">
     <?= $this->form->csrf() ?>
 
     <div class="note-form-container">

@@ -10,6 +10,6 @@
     <?= $this->modal->confirmButtons(
         'NoteTagController',
         'remove',
-        array('plugin' => 'NewNotes', 'tag_id' => $tag['id'])
+        array('plugin' => 'Notebook', 'tag_id' => $tag['id'])
     ) ?>
 </div>

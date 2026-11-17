@@ -18,8 +18,8 @@ This is an independent modification, mainly for educational purposes, to learn h
 
 You have the choice between 2 methods:
 
-1. Download the zip file and decompress everything under the directory `plugins/NewNotes`
-2. Clone this repository into the folder `plugins/NewNotes`
+1. Download the zip file and decompress everything under the directory `plugins/Notebook`
+2. Clone this repository into the folder `plugins/Notebook`
 
 Note: Plugin folder is case-sensitive.
 

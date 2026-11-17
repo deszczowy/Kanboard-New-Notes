@@ -2,7 +2,7 @@
     <h2><?= t('User tags') ?></h2>
     <ul>
         <li>
-            <?= $this->modal->medium('plus', t('Add new tag'), 'NoteTagController', 'create', array('plugin' => 'NewNotes')) ?>
+            <?= $this->modal->medium('plus', t('Add new tag'), 'NoteTagController', 'create', array('plugin' => 'Notebook')) ?>
         </li>
     </ul>
 </div>
@@ -21,8 +21,8 @@
                 <td><?= $this->text->e($tag['name']) ?></td>
                 <td><?= $this->text->e($colors[$tag['color_id']] ?? '') ?></td>
                 <td>
-                    <?= $this->modal->medium('edit', t('Edit'), 'NoteTagController', 'edit', array('plugin' => 'NewNotes', 'tag_id' => $tag['id'])) ?>
-                    <?= $this->modal->confirm('trash-o', t('Remove'), 'NoteTagController', 'confirm', array('plugin' => 'NewNotes', 'tag_id' => $tag['id'])) ?>
+                    <?= $this->modal->medium('edit', t('Edit'), 'NoteTagController', 'edit', array('plugin' => 'Notebook', 'tag_id' => $tag['id'])) ?>
+                    <?= $this->modal->confirm('trash-o', t('Remove'), 'NoteTagController', 'confirm', array('plugin' => 'Notebook', 'tag_id' => $tag['id'])) ?>
                 </td>
             </tr>
         <?php endforeach ?>

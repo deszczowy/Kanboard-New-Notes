@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanboard\Plugin\NewNotes\Filter;
+namespace Kanboard\Plugin\Notebook\Filter;
 
 use Kanboard\Core\Filter\FilterInterface;
 use Kanboard\Core\Filter\QueryBuilder;

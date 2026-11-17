@@ -1,7 +1,7 @@
 <div class="page-header">
     <h2><?= t('Add new tag') ?></h2>
 </div>
-<form method="post" action="<?= $this->url->href('NoteTagController', 'save', array('plugin' => 'NewNotes')) ?>" autocomplete="off">
+<form method="post" action="<?= $this->url->href('NoteTagController', 'save', array('plugin' => 'Notebook')) ?>" autocomplete="off">
     <?= $this->form->csrf() ?>
     <?= $this->form->hidden('user_id', $values) ?>
 

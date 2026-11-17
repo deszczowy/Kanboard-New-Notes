@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanboard\Plugin\NewNotes\Helper;
+namespace Kanboard\Plugin\Notebook\Helper;
 
 use Kanboard\Core\Base;
 

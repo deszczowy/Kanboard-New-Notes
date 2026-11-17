@@ -1,24 +1,24 @@
 <?php
 
-namespace Kanboard\Plugin\NewNotes;
+namespace Kanboard\Plugin\Notebook;
 
 use Kanboard\Core\Plugin\Base;
 use Kanboard\Core\Translator;
-use Kanboard\Plugin\NewNotes\Filter\NoteContentFilter;
+use Kanboard\Plugin\Notebook\Filter\NoteContentFilter;
 
 class Plugin extends Base
 {
     public function initialize()
     {
-        $this->hook->on('template:layout:js', array('template' => 'plugins/NewNotes/Assets/js/NotesApp.js'));
-        $this->hook->on('template:layout:css', array('template' => 'plugins/NewNotes/Assets/css/notes.css'));
-        $this->template->hook->attach('template:dashboard:sidebar', 'NewNotes:dashboard/sidebar');
-        $this->template->hook->attach('template:dashboard:page-header:menu', 'NewNotes:dashboard/menu');
-        $this->template->hook->attach('template:user:sidebar:actions', 'NewNotes:user/sidebar');
-        $this->route->addRoute('/dashboard/:userId/notes', 'UserNotesAndTodosController', 'show', 'NewNotes');
-        $this->route->addRoute('/user/:userId/tags', 'NoteTagController', 'show', 'NewNotes');
+        $this->hook->on('template:layout:js', array('template' => 'plugins/Notebook/Assets/js/NotesApp.js'));
+        $this->hook->on('template:layout:css', array('template' => 'plugins/Notebook/Assets/css/notes.css'));
+        $this->template->hook->attach('template:dashboard:sidebar', 'Notebook:dashboard/sidebar');
+        $this->template->hook->attach('template:dashboard:page-header:menu', 'Notebook:dashboard/menu');
+        $this->template->hook->attach('template:user:sidebar:actions', 'Notebook:user/sidebar');
+        $this->route->addRoute('/dashboard/:userId/notes', 'UserNotesAndTodosController', 'show', 'Notebook');
+        $this->route->addRoute('/user/:userId/tags', 'NoteTagController', 'show', 'Notebook');
 
-        $this->helper->register('note', '\Kanboard\Plugin\NewNotes\Helper\NoteHelper');
+        $this->helper->register('note', '\Kanboard\Plugin\Notebook\Helper\NoteHelper');
     }
 
     public function onStartup()
@@ -28,12 +28,12 @@ class Plugin extends Base
 
     public function getPluginName()
     {
-        return 'NewNotes';
+        return 'Notebook';
     }
 
     public function getPluginDescription()
     {
-        return t('Write notes in Kanboard.');
+        return t('Notebook for your Kanboard.');
     }
 
     public function getPluginAuthor()
@@ -48,17 +48,17 @@ class Plugin extends Base
 
     public function getPluginHomepage()
     {
-        return 'https://gitlab.com/colonelpopcorn/kanboard-notes-plugin';
+        return 'https://github.com/deszczowy/kanboard-notebook';
     }
 
     public function getClasses()
     {
         return array(
-            'Plugin\NewNotes\Model' => array(
+            'Plugin\Notebook\Model' => array(
                 'NotesModel',
                 'NoteTagModel',
             ),
-            'Plugin\NewNotes\Formatter' => array(
+            'Plugin\Notebook\Formatter' => array(
                 'NoteListFormatter'
             )
         );
