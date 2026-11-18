@@ -28,7 +28,7 @@ function version_1(PDO $pdo)
             name TEXT NOT NULL,
             user_id INTEGER NOT NULL,
             color_id TEXT DEFAULT NULL,
-            UNIQUE(user_id, name)
+            UNIQUE (user_id, name)
         );'
     );
 
@@ -36,9 +36,9 @@ function version_1(PDO $pdo)
         CREATE TABLE IF NOT EXISTS notebook_note_has_tag (
             note_id INTEGER NOT NULL,
             tag_id INTEGER NOT NULL,
-            FOREIGN KEY(note_id) REFERENCES notebook(id) ON DELETE CASCADE,
-            FOREIGN KEY(tag_id) REFERENCES notebook_tag(id) ON DELETE CASCADE,
-            UNIQUE(tag_id, note_id)
+            FOREIGN KEY (note_id) REFERENCES notebook(id) ON DELETE CASCADE,
+            FOREIGN KEY (tag_id) REFERENCES notebook_tag(id) ON DELETE CASCADE,
+            UNIQUE (tag_id, note_id)
         );'
     );
 }
