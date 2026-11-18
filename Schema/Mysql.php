@@ -4,12 +4,12 @@ namespace Kanboard\Plugin\Notebook\Schema;
 
 use PDO;
 
-const VERSION = 2;
+const VERSION = 1;
 
 function version_1(PDO $pdo)
 {
     $pdo->exec('
-        CREATE TABLE IF NOT EXISTS notes (
+        CREATE TABLE IF NOT EXISTS notebook (
             id INTEGER AUTO_INCREMENT PRIMARY KEY,
             note_owner_id INTEGER NOT NULL,
             note_owner_type TEXT NOT NULL,
@@ -21,12 +21,9 @@ function version_1(PDO $pdo)
             modified_by INTEGER NOT NULL
         );'
     );
-}
 
-function version_2(PDO $pdo)
-{
     $pdo->exec('
-        CREATE TABLE IF NOT EXISTS notes_user_tags (
+        CREATE TABLE IF NOT EXISTS notebook_tag (
             id INTEGER AUTO_INCREMENT PRIMARY KEY,
             name TEXT NOT NULL,
             user_id INTEGER NOT NULL, color_id TEXT DEFAULT NULL,
@@ -35,11 +32,11 @@ function version_2(PDO $pdo)
     );
 
     $pdo->exec('
-        CREATE TABLE IF NOT EXISTS note_has_user_tags (
+        CREATE TABLE IF NOT EXISTS notebook_note_has_tag (
             note_id INTEGER NOT NULL,
             tag_id INTEGER NOT NULL,
-            FOREIGN KEY(note_id) REFERENCES notes(id) ON DELETE CASCADE,
-            FOREIGN KEY(tag_id) REFERENCES notes_user_tags(id) ON DELETE CASCADE,
+            FOREIGN KEY(note_id) REFERENCES notebook(id) ON DELETE CASCADE,
+            FOREIGN KEY(tag_id) REFERENCES notebook_tag(id) ON DELETE CASCADE,
             UNIQUE(tag_id, note_id)
         );'
     );

@@ -7,7 +7,7 @@ use Kanboard\Core\Base;
 
 class NotesModel extends Base
 {
-    const TABLE = "notes";
+    const TABLE = "notebook";
 
     public function getUserViewQuery($userId)
     {

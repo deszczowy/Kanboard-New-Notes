@@ -6,8 +6,8 @@ use Kanboard\Core\Base;
 
 class NoteTagModel extends Base
 {
-    const TABLE = "note_has_user_tags";
-    const TAG_TABLE = "notes_user_tags";
+    const TABLE = "notebook_note_has_tag";
+    const TAG_TABLE = "notebook_tag";
 
     public function getTagsForNote($noteId)
     {
