@@ -4,7 +4,7 @@ Keep your notes organized with a dedicated Notebook built into Kanboard. Create 
 
 This project is based on [kanboard-notes-plugin](https://gitlab.com/colonelpopcorn/kanboard-notes-plugin) created by Jonathan Ling and released under the MIT License. It is an independent modification that I make to learn how to create plugins for Kanboard, but also to adapt this particular plugin to my own needs. I do not maintain the original plugin.
 
-At this point the plugin uses database structures shared with the original project, so keep this in mind when using it and **please be careful when using the plugin in your work environment!**
+`Notebook` is a separate plugin, is completely independent from its predecessor and uses its own database structures. But it is still in the joyfull development phase, so **please be careful when using the plugin in your work environment!**
 
 ### Installation
 
@@ -17,7 +17,8 @@ Plugin is not accessible from official Kanboard Plugin Directory, so to install 
 
 Remember, that plugin folders are case-sensitive.
 
-### Notes
- - [ ] Implement dynamic tagging from edit page
- - [ ] Implement search by tag
- - [ ] Implement TODO list items
+### Features in development
+* Migration tool from previous plugin 
+* Dynamic tag creation from edit page
+* Search by tag
+* Download as a plaintext, markdown or pdf file
